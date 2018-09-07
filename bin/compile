@@ -11,9 +11,9 @@ cd $cache
 
 git clone https://github.com/openvenues/libpostal --depth 1 --single-branch --branch=master
 cd libpostal/
-time ./bootstrap.sh
-time LDFLAGS="-L$build/lib" CFLAGS="-I$build/include" PKG_CONFIG_PATH="$build/lib/pkgconfig" ./configure --prefix=/app/libpostal --datadir="$cache/data"
-time make
+./bootstrap.sh
+LDFLAGS="-L$build/lib" CFLAGS="-I$build/include" PKG_CONFIG_PATH="$build/lib/pkgconfig" ./configure --prefix=/app/libpostal --datadir="$cache/data"
+make
 make install
 
 mv /app/libpostal $build
