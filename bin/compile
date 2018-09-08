@@ -2,13 +2,13 @@
 set -e
 
 BUILD=$1
-mkdir -p $BUILD
+CACHE=$2
 
-cd $BUILD
+cd $CACHE
 
 git clone https://github.com/openvenues/libpostal --depth 1 --single-branch --branch=master
 cd libpostal/
 ./bootstrap.sh
-LDFLAGS="-L/app/vendor/lib" CFLAGS="-I/app/vendor/include" PKG_CONFIG_PATH="/app/vendor/lib/pkgconfig" ./configure --prefix=/app/vendor/ --datadir=/app/vendor
+LDFLAGS="-L$BUILD/vendor/lib" CFLAGS="-I$BUILD/vendor/include" PKG_CONFIG_PATH="$BUILD/vendor/lib/pkgconfig" ./configure --prefix=$BUILD/vendor/ --datadir=$BUILD/vendor/var
 make
 make install
