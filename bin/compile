@@ -13,7 +13,7 @@ else
   cd libpostal
 fi
 ./bootstrap.sh
-LDFLAGS="-L$BUILD/vendor/lib" CFLAGS="-I$BUILD/vendor/include" PKG_CONFIG_PATH="$BUILD/vendor/lib/pkgconfig" ./configure --prefix=$BUILD/vendor --datadir=$CACHE/libpostal-data
+LDFLAGS="-L$BUILD/vendor/lib" CFLAGS="-I$BUILD/vendor/include" PKG_CONFIG_PATH="$BUILD/vendor/lib/pkgconfig" ./configure --prefix=$BUILD/vendor --datadir=$BUILD/vendor/libpostal-data
 make
 make install
 
