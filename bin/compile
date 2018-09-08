@@ -6,8 +6,12 @@ CACHE=$2
 
 cd $CACHE
 
-git clone https://github.com/openvenues/libpostal --depth 1 --single-branch --branch=master
-cd libpostal/
+if cd libpostal; then
+  git pull
+else
+  git clone https://github.com/openvenues/libpostal --depth 1 --single-branch --branch=master
+  cd libpostal
+fi
 ./bootstrap.sh
 LDFLAGS="-L$BUILD/vendor/lib" CFLAGS="-I$BUILD/vendor/include" PKG_CONFIG_PATH="$BUILD/vendor/lib/pkgconfig" ./configure --prefix=$BUILD/vendor/ --datadir=$BUILD/vendor/var
 make
