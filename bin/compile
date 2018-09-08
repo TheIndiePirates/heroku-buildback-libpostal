@@ -17,6 +17,4 @@ LDFLAGS="-L$BUILD/vendor/lib" CFLAGS="-I$BUILD/vendor/include" PKG_CONFIG_PATH="
 make
 make install
 
-if type bundle; then
-  bundle config  build.ruby_postal "--with-libpostal-dir=$BUILD/vendor"
-fi
+cp --recursive $BUILD/vendor/* /app/vendor
