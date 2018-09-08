@@ -2,12 +2,9 @@
 set -e
 
 BUILD=$1
-CACHE=$2
+mkdir -p $BUILD/tmp
 
-mkdir -p $BUILD
-mkdir -p $CACHE
-
-cd $BUILD
+cd $BUILD/tmp
 
 git clone https://github.com/openvenues/libpostal --depth 1 --single-branch --branch=master
 cd libpostal/
