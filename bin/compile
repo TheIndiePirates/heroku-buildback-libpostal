@@ -1,16 +1,16 @@
 #!/bin/sh
 set -e
 
-build=$1
-cache=$2
+BUILD=$1
+CACHE=$2
 
-mkdir -p $build
-mkdir -p $cache
+mkdir -p $BUILD
+mkdir -p $CACHE
 
-cd $cache
+cd $BUILD
 
-git clone https://github.com/openvenues/libpostal --depth 1 --single-branch --branch=master libpostal-build
-cd libpostal-build/
+git clone https://github.com/openvenues/libpostal --depth 1 --single-branch --branch=master
+cd libpostal/
 ./bootstrap.sh
 LDFLAGS="-L/app/vendor/lib" CFLAGS="-I/app/vendor/include" PKG_CONFIG_PATH="/app/vendor/lib/pkgconfig" ./configure --prefix=/app/vendor/ --datadir=/app/vendor
 make
