@@ -26,7 +26,7 @@ else
   cd libpostal
 fi
 ./bootstrap.sh
-LDFLAGS="-L/app/vendor/lib" CFLAGS="-I/app/vendor/include" PKG_CONFIG_PATH="/app/vendor/lib/pkgconfig" ./configure --prefix=/app/vendor --datadir=/app/vendor/libpostal-data
+LDFLAGS="-L/app/vendor/lib" CFLAGS="-I/app/vendor/include" PKG_CONFIG_PATH="/app/vendor/lib/pkgconfig" ./configure --prefix=/app/vendor --datadir=/app/vendor/libpostal-data --disable-data-download
 make
 make install
 
