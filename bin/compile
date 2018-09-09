@@ -7,18 +7,6 @@ CACHE=$2
 
 cd $CACHE
 
-if cd snappy; then
-  git pull
-else
-  git clone https://github.com/google/snappy.git --depth 1 --single-branch --branch=1.1.4
-  cd snappy
-fi
-./autogen.sh
-./configure --prefix=/app/vendor
-make
-make install
-cd -
-
 if cd libpostal; then
   git pull
 else
