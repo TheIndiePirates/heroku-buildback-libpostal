@@ -14,7 +14,7 @@ else
   cd snappy
 fi
 ./autogen.sh
-./configure --prefix=$BUILD/vendor
+./configure --prefix=/app/vendor
 make
 make install
 cd -
@@ -26,8 +26,8 @@ else
   cd libpostal
 fi
 ./bootstrap.sh
-LDFLAGS="-L$BUILD/vendor/lib" CFLAGS="-I$BUILD/vendor/include" PKG_CONFIG_PATH="$BUILD/vendor/lib/pkgconfig" ./configure --prefix=$BUILD/vendor --datadir=$BUILD/vendor/libpostal-data
+LDFLAGS="-L/app/vendor/lib" CFLAGS="-I/app/vendor/include" PKG_CONFIG_PATH="/app/vendor/lib/pkgconfig" ./configure --prefix=/app/vendor --datadir=/app/vendor/libpostal-data
 make
 make install
 
-cp --recursive $BUILD/vendor/include $BUILD/vendor/lib /app/vendor
+cp --recursive /app/vendor/* $BUILD/vendor
