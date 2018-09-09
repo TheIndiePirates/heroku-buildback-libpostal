@@ -14,11 +14,9 @@ else
   cd libpostal
 fi
 ./bootstrap.sh
-LDFLAGS="-L/app/vendor/lib" CFLAGS="-I/app/vendor/include" PKG_CONFIG_PATH="/app/vendor/lib/pkgconfig" ./configure --prefix=/app/vendor  --disable-data-download --datadir=/app/vendor/share/libpostal
+./configure --prefix=/app/vendor  --disable-data-download --datadir=/app/vendor/share/libpostal
 make
-# install libpostal to /app/vendor
+# install libpostal to /app/vendor so it would be available for a slug compilation
 make install
-
-mkdir --parent $BUILD/vendor
-# copy libpostal to a build directory so it would appear in a slug
-cp --recursive /app/vendor/bin /app/vendor/lib /app/vendor/include $BUILD/vendor
+# install libpostal to a build directory so it would appear in the slug
+make install DESTDIR=$BUILD/vendor
