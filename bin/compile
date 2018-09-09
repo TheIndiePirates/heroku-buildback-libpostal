@@ -30,4 +30,5 @@ LDFLAGS="-L/app/vendor/lib" CFLAGS="-I/app/vendor/include" PKG_CONFIG_PATH="/app
 make
 make install
 
-cp --recursive /app/vendor/* $BUILD/vendor
+mkdir --parent $BUILD/vendor
+cp --recursive /app/vendor/bin /app/vendor/lib /app/vendor/include /app/vendor/libpostal-data $BUILD/vendor
