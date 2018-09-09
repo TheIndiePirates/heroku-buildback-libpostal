@@ -31,4 +31,4 @@ make
 make install
 
 mkdir --parent $BUILD/vendor
-cp --recursive /app/vendor/bin /app/vendor/lib /app/vendor/include /app/vendor/libpostal-data $BUILD/vendor
+cp --recursive /app/vendor/bin /app/vendor/lib /app/vendor/include $BUILD/vendor
