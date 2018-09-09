@@ -1,10 +1,23 @@
 #!/bin/sh
+set -x
 set -e
 
 BUILD=$1
 CACHE=$2
 
 cd $CACHE
+
+if cd snappy; then
+  git pull
+else
+  git clone https://github.com/google/snappy.git --depth 1 --single-branch --branch=1.1.4
+fi
+cd snappy
+./autogen.sh
+./configure --prefix=$BUILD/vendor
+make
+make install
+cd -
 
 if cd libpostal; then
   git pull
