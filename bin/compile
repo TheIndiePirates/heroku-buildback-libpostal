@@ -4,7 +4,7 @@ set -e
 
 BUILD=$1
 CACHE=$2
-rm -rf $CACHE/*
+
 cd $CACHE
 
 if cd snappy; then
