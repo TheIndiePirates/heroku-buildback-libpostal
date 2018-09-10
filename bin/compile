@@ -19,5 +19,6 @@ make
 # install libpostal to /app/vendor so it would be available for a slug compilation
 make install
 # install libpostal to a build directory so it would appear in the slug
+mkdir --parent $BUILD/vendor
 cp --recursive /app/vendor/include /app/vendor/lib $BUILD/vendor
 # /app/vendor/bin/libpostal_data download all /app/vendor/share/libpostal
