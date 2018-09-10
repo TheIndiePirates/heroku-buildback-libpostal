@@ -19,4 +19,5 @@ make
 # install libpostal to /app/vendor so it would be available for a slug compilation
 make install
 # install libpostal to a build directory so it would appear in the slug
-make install DESTDIR=$BUILD/vendor
+ln -sf $BUILD ../app
+make install DESTDIR=$BUILD/../
