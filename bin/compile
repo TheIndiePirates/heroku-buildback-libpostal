@@ -14,10 +14,10 @@ else
   cd libpostal
 fi
 ./bootstrap.sh
-./configure --prefix=/app/vendor  --disable-data-download --datadir=/app/vendor/share/libpostal
+./configure --prefix=/app/vendor --disable-data-download
 make
 # install libpostal to /app/vendor so it would be available for a slug compilation
 make install
 # install libpostal to a build directory so it would appear in the slug
-ln -sf $BUILD ../app
-make install DESTDIR=$BUILD/../
+cp --recursive /app/vendor/include /app/vendor/lib $BUILD/vendor
+# /app/vendor/bin/libpostal_data download all /app/vendor/share/libpostal
