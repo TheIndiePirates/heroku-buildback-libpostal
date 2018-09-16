@@ -21,4 +21,5 @@ make install
 # copy libpostal to the build directory so it would appear in the slug
 mkdir --parent $BUILD/vendor
 cp --recursive /app/vendor/bin /app/vendor/include /app/vendor/lib $BUILD/vendor
+# Fetch data manualy after Dyno start as it exeeds a slug size limit
 # /app/vendor/bin/libpostal_data download all /app/vendor/share/libpostal
