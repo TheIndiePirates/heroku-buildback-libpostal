@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+# Ensure gem can find its sources. (gem install ruby_postal -- --srcdir=/app/vendor)
+# Avoids: expand.c:1:10: fatal error: libpostal/libpostal.h: No such file or directory
+bundle config build.ruby_postal --srcdir=/app/vendor
+
+# Get the libpostal data:
+/app/vendor/bin/libpostal_data download all /app/vendor/share/libpostal
+
 echo "--- {}"
