@@ -26,5 +26,4 @@ cp --recursive /app/vendor/bin /app/vendor/include /app/vendor/lib $BUILD/vendor
 
 # Set the right prefix for bundler:
 mkdir $BUILD/.bundle
-echo 'BUNDLE_BUILD__RUBY_POSTAL: "--srcdir=/app/vendor"' >> $BUILD/.bundle/config
-
+echo 'BUNDLE_BUILD__RUBY_POSTAL: "--with-libpostal-dir=/app/vendor"' >> $BUILD/.bundle/config
