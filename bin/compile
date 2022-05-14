@@ -15,7 +15,7 @@ else
 fi
 make distclean
 ./bootstrap.sh
-./configure --prefix=/app/vendor --disable-data-download --datadir=/app/vendor/share/libpostal
+./configure --prefix=/app/vendor --datadir=/app/vendor/share/libpostal
 make
 # install libpostal to /app/vendor so it would be available for a slug compilation
 make install
